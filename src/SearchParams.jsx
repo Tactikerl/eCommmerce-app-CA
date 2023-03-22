@@ -73,7 +73,7 @@ const SearchParams = () => {
             onSale={
               product.price === product.discountedPrice ? "" : " : On Sale!"
             }
-            discount={(product.price * 100) / product.discountedPrice}
+            discount={(Math.round((product.discountedPrice * 100) / product.price - 100 )) + "%"}
             tags={product.tags}
             key={product.id}
           />
