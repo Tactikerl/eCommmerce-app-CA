@@ -12,7 +12,7 @@ const Product = (props) => {
       </div>
       <h2>
         {props.price}
-        {props.onSale}
+        {props.onSale} <p>{props.discount}</p>
       </h2>
     </div>
   );
