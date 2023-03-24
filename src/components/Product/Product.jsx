@@ -7,13 +7,14 @@ const Product = (props) => {
           <span key={tag}>{tag} </span>
         ))}
       </p>
+      <h2>
+        {props.price}
+        {props.onSale}
+        {props.discount}
+      </h2>
       <div className="image-container">
         <img src={props.image} alt={props.title} />
       </div>
-      <h2>
-        {props.price}
-        {props.onSale} <p>{props.discount}</p>
-      </h2>
     </div>
   );
 };
