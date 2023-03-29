@@ -1,30 +1,11 @@
 import { useEffect, useState } from "react";
-import Product from "./Product";
-// const TAGS = [
-//   "electronics",
-//   "perfume",
-//   "beauty",
-//   "shoes",
-//   "headphones",
-//   "fashion",
-//   "bags",
-//   "glasses",
-//   "watch",
-//   "shampoo",
-//   "toy",
-//   "computers",
-//   "audio",
-//   "accessories",
-//   "wearables",
-//   "gaming",
-//   "storage",
-//   "peripherals",
-//   "jewelry",
-//   "skin care",
-// ];
+import ProductList from "./ProductList";
+
 const SearchParams = () => {
   const [fetchProducts, setFetchProducts] = useState([]);
   const [productSearch, setProductSearch] = useState("");
+  // const [isLoading, setIsLoading] = useState(false)
+  // const [hasError, setHasError] = useState(false)
 
   useEffect(() => {
     requestFetchProducts();
@@ -62,26 +43,17 @@ const SearchParams = () => {
             products.tags.join().includes(productSearch)
         )
         .map((product) => (
-          <Product
+          <ProductList
             title={product.title}
             image={product.imageUrl}
-            price={
-              product.discountedPrice > product.price
-                ? product.price
-                : product.discountedPrice
-            }
+            price={product.price}
             onSale={
               product.price === product.discountedPrice ? "" : " : Discount "
             }
-            discount={
-              product.price === product.discountedPrice
-                ? ""
-                : Math.round(
-                    (product.discountedPrice * 100) / product.price - 100
-                  ) + "%"
-            }
+            discount={product.discountedPrice}
             tags={product.tags}
             key={product.id}
+            id={product.id}
           />
         ))}
     </div>

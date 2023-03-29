@@ -1,15 +1,18 @@
 import React from "react";
-import Footer from "./Footer";
-import Header from "./Header";
+import Footer from "../Footer/Footer";
+import Header from "../Header/Header";
 import SearchParams from "../Product/SearchParams";
 
 const Layout = () => {
   return (
     <>
       <Header />
-      <div></div>
-      <h1>Shop eCom</h1>
-      <Footer footer="Kvammen Industries™" />
+      <SearchParams />
+      <Footer
+        socials="Social Media Stuff"
+        contact="Contact Info"
+        trademark="Kvammen Industries ™"
+      />
     </>
   );
 };

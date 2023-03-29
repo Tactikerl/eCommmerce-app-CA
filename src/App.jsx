@@ -1,15 +1,16 @@
 import { createRoot } from "react-dom/client";
-import { Link, BrowserRouter, Routes, Route } from "react-router-dom";
-import ProductPage from "./components/Product/ProductPage";
-import SearchParams from "./components/Product/SearchParams";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import ProductParams from "./components/Product/ProductParams";
+import Layout from "./components/Layout/Layout";
+import ContactPage from "./components/Contact/ContactPage";
 
 const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="" />
-        <Route path="/product/:id" element={<ProductPage />} />
-        <Route path="/" element={<SearchParams />} />
+        <Route path="/product/:id" element={<ProductParams />} />
+        <Route path="ContactPage" element={<ContactPage />} />
+        <Route path="/" element={<Layout />} />
       </Routes>
     </BrowserRouter>
   );
