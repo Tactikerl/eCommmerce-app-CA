@@ -1,12 +1,10 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { CartContext } from "../../App";
-import CartPage from "./CartPage";
 
 const Cart = () => {
   // const [productCount, setProductCount] = useState(0);
   const { cartContent } = useContext(CartContext);
-  console.log(cartContent);
 
   return (
     <div>
@@ -18,7 +16,6 @@ const Cart = () => {
         />
       </Link>
       <p>{cartContent.itemNumber}</p>
-      <p>hello there</p>
     </div>
   );
 };

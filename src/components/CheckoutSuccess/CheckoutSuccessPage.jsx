@@ -1,6 +1,14 @@
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { CartContext } from "../../App";
 
 const CheckoutSuccess = () => {
+  const { clearCart } = useContext(CartContext);
+
+  useEffect(() => {
+    clearCart();
+  }, []);
   return (
     <div className="checkout-message">
       <h2>Thank You!</h2>
