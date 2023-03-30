@@ -1,8 +1,11 @@
 import { Link } from "react-router-dom";
 import discountCalc from "./discountCalc";
 import displayPrice from "./displayPrice";
+import { useContext } from "react";
+import { CartContext } from "../../App";
 
 const ProductList = (props) => {
+  const { cartContent, addToCart } = useContext(CartContext);
   return (
     <div>
       <Link to={`/product/${props.id}`}>
@@ -24,7 +27,7 @@ const ProductList = (props) => {
       </p>
       <div className="buttons">
         <Link to={`/product/${props.id}`}>View Product</Link>
-        <button>Add to Cart</button>
+        <button onClick={() => addToCart(props.id)}>Add to Cart</button>
       </div>
     </div>
   );

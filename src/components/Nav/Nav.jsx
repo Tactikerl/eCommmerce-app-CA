@@ -7,12 +7,11 @@ const Nav = () => {
     <nav>
       <ul>
         <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
           <Link to="/ContactPage">Contact Us</Link>
         </li>
-        {/* <li><Cart cartImg cartIndex={}/></li> */}
+        <li>
+          <Cart cartImg />
+        </li>
       </ul>
     </nav>
   );

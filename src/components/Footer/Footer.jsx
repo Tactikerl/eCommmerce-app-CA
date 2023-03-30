@@ -1,9 +1,9 @@
-const Footer = (props) => {
+const Footer = () => {
   return (
     <footer>
-      <span>
-        {props.socials} - {props.contact} - {props.trademark}
-      </span>
+      <p>Social Media</p>
+      <p>Legal Stuff</p>
+      <p>Keeerl LTD™</p>
     </footer>
   );
 };

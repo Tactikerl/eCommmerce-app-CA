@@ -5,15 +5,15 @@ import SearchParams from "../Product/SearchParams";
 
 const Layout = () => {
   return (
-    <>
-      <Header />
+    <div>
+      {/* <Header /> */}
       <SearchParams />
-      <Footer
+      {/* <Footer
         socials="Social Media Stuff"
         contact="Contact Info"
         trademark="Kvammen Industries ™"
-      />
-    </>
+      /> */}
+    </div>
   );
 };
 
