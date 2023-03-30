@@ -2,10 +2,13 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import discountCalc from "./discountCalc";
 import displayPrice from "./displayPrice";
+import { useContext } from "react";
+import { CartContext } from "../../App";
 
 const ProductPage = () => {
   const { id } = useParams();
   const [fetchedProduct, setFetchedProducts] = useState({});
+  const { _, addToCart } = useContext(CartContext);
 
   useEffect(() => {
     requestFetchProducts(id);
@@ -39,6 +42,16 @@ const ProductPage = () => {
         <div className="image-container">
           <img src={fetchedProduct.imageUrl} alt={fetchedProduct.title} />
         </div>
+        <button
+          onClick={() =>
+            addToCart(
+              fetchedProduct.id,
+              fetchedProduct.title,
+              fetchedProduct.imageUrl,
+              displayPrice(fetchedProduct.price, fetchedProduct.discountedPrice)
+            )
+          }
+        ></button>
       </div>
       <div className="review-container">
         <div className="overall-rating">

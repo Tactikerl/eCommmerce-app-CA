@@ -27,7 +27,18 @@ const ProductList = (props) => {
       </p>
       <div className="buttons">
         <Link to={`/product/${props.id}`}>View Product</Link>
-        <button onClick={() => addToCart(props.id)}>Add to Cart</button>
+        <button
+          onClick={() =>
+            addToCart(
+              props.id,
+              props.title,
+              props.image,
+              displayPrice(props.price, props.discount)
+            )
+          }
+        >
+          Add to Cart
+        </button>
       </div>
     </div>
   );
