@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { CartContext } from "../../App";
-import CheckoutSuccess from "../CheckoutSuccess/CheckoutSuccessPage";
 
 const CartPage = () => {
   const { cartContent, addToCart, removeFromCart, clearCart } =
