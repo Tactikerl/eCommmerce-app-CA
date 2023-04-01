@@ -1,22 +1,18 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { CartContext } from "../../App";
+import * as S from "./cart.styled";
 
 const Cart = () => {
-  // const [productCount, setProductCount] = useState(0);
   const { cartContent } = useContext(CartContext);
 
   return (
-    <div>
+    <S.CartIconContainer>
       <Link to={`CartPage`}>
-        <img
-          className="cart-img"
-          src="../assets/cart-icon.png"
-          alt="cart logo"
-        />
+        <S.CartImage src="../assets/cart-icon.png" alt="cart logo" />
       </Link>
-      <p>{cartContent.itemNumber}</p>
-    </div>
+      <S.CartCount>{cartContent.itemNumber}</S.CartCount>
+    </S.CartIconContainer>
   );
 };
 export default Cart;

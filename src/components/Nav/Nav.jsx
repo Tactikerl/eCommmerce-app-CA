@@ -1,19 +1,23 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Cart from "../Cart/Cart";
+import * as S from "./nav.styled";
 
 const Nav = () => {
   return (
-    <nav>
-      <ul>
-        <li>
+    <S.NavWrapper>
+      <S.NavMenu>
+        <S.NavMenuItem>
           <Link to="/ContactPage">Contact Us</Link>
-        </li>
-        <li>
+        </S.NavMenuItem>
+        <S.NavMenuItem>
+          <Link to="/">Home</Link>
+        </S.NavMenuItem>
+        <S.NavMenuItem>
           <Cart cartImg />
-        </li>
-      </ul>
-    </nav>
+        </S.NavMenuItem>
+      </S.NavMenu>
+    </S.NavWrapper>
   );
 };
 

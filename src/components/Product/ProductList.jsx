@@ -3,31 +3,33 @@ import discountCalc from "./discountCalc";
 import displayPrice from "./displayPrice";
 import { useContext } from "react";
 import { CartContext } from "../../App";
+import * as S from "./productList.styled";
 
 const ProductList = (props) => {
   const { cartContent, addToCart } = useContext(CartContext);
   return (
-    <div>
+    <S.ProductWrapper>
       <Link to={`/product/${props.id}`}>
-        <h1 className="product-title">{props.title}</h1>
-        <div className="image-container">
-          <img src={props.image} alt={props.title} />
-        </div>
+        <S.ProductTitle>{props.title}</S.ProductTitle>
+
+        <S.ProductImage src={props.image} alt={props.title} />
       </Link>
-      <h2 className="product-price">
+      <S.ProductPrice>
         {displayPrice(props.price, props.discount)}
         {props.onSale}
         {discountCalc(props.price, props.discount)}
-      </h2>
+      </S.ProductPrice>
 
-      <p>
+      <S.ProductTag>
         {props.tags.map((tag) => (
           <span key={tag}>{tag} </span>
         ))}
-      </p>
-      <div className="buttons">
-        <Link to={`/product/${props.id}`}>View Product</Link>
-        <button
+      </S.ProductTag>
+      <div>
+        <Link to={`/product/${props.id}`}>
+          <S.ProductButton>View Product</S.ProductButton>
+        </Link>
+        <S.ProductButton
           onClick={() =>
             addToCart(
               props.id,
@@ -38,9 +40,9 @@ const ProductList = (props) => {
           }
         >
           Add to Cart
-        </button>
+        </S.ProductButton>
       </div>
-    </div>
+    </S.ProductWrapper>
   );
 };
 

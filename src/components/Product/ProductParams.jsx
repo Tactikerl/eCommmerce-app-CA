@@ -4,6 +4,7 @@ import discountCalc from "./discountCalc";
 import displayPrice from "./displayPrice";
 import { useContext } from "react";
 import { CartContext } from "../../App";
+import * as S from "./productPage.styled";
 
 const ProductPage = () => {
   const { id } = useParams();
@@ -20,29 +21,40 @@ const ProductPage = () => {
     setFetchedProducts(json);
   }
   return (
-    <div>
-      <div className="product-container">
-        <h1>{fetchedProduct.title}</h1>
-        <p>
+    <S.ProductPageContainer>
+      <S.ProductDetails>
+        <S.ProductTitle>{fetchedProduct.title}</S.ProductTitle>
+        <S.ProductTags>
           {fetchedProduct.tags &&
             fetchedProduct.tags.map((tag) => <span key={tag}>{tag} </span>)}
-        </p>
-        <div className="price-container">
-          <h2 className="product-price">
-            {displayPrice(fetchedProduct.price, fetchedProduct.discountedPrice)}{" "}
-            {discountCalc(fetchedProduct.price, fetchedProduct.discountedPrice)}
-          </h2>
-          <p>
-            {fetchedProduct.price === fetchedProduct.discountedPrice
-              ? ""
-              : "  Discount"}
-          </p>
-        </div>
-        <p className="product-body">{fetchedProduct.description}</p>
-        <div className="image-container">
-          <img src={fetchedProduct.imageUrl} alt={fetchedProduct.title} />
-        </div>
-        <button
+        </S.ProductTags>
+
+        <S.ProductPrice>
+          {"$"}
+          {displayPrice(
+            fetchedProduct.price,
+            fetchedProduct.discountedPrice
+          )}{" "}
+          {discountCalc(fetchedProduct.price, fetchedProduct.discountedPrice)}
+        </S.ProductPrice>
+        <S.ProductPrice>
+          {fetchedProduct.price === fetchedProduct.discountedPrice
+            ? ""
+            : "  Discount"}
+        </S.ProductPrice>
+
+        <S.ProductInfo>{fetchedProduct.description}</S.ProductInfo>
+
+        <S.ProductImage
+          src={fetchedProduct.imageUrl}
+          alt={fetchedProduct.title}
+        />
+
+        <S.ProductRating>
+          Overall Rating :{fetchedProduct.rating}
+        </S.ProductRating>
+
+        <S.AddProductButton
           onClick={() =>
             addToCart(
               fetchedProduct.id,
@@ -51,22 +63,21 @@ const ProductPage = () => {
               displayPrice(fetchedProduct.price, fetchedProduct.discountedPrice)
             )
           }
-        ></button>
-      </div>
-      <div className="review-container">
-        <div className="overall-rating">
-          <h3>Overall Rating :{fetchedProduct.rating}</h3>
-        </div>
+        >
+          Add to Cart
+        </S.AddProductButton>
+      </S.ProductDetails>
+      <S.ProductReviewContainer>
         {fetchedProduct.reviews &&
           fetchedProduct.reviews.map((review) => (
-            <div className="review-card" key={review.id}>
+            <S.ProductReviewCard key={review.id}>
               <h3>{review.username}</h3>
               <span>{review.rating}</span>
               <p>{review.description}</p>
-            </div>
+            </S.ProductReviewCard>
           ))}
-      </div>
-    </div>
+      </S.ProductReviewContainer>
+    </S.ProductPageContainer>
   );
 };
 

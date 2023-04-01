@@ -1,6 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Nav from "../Nav/Nav";
+import Cart from "../Cart/Cart";
+import * as S from "./header.styled";
+
 const Header = () => {
   return (
     <div className="nav-container">
@@ -8,8 +11,8 @@ const Header = () => {
         <h1>
           <Link to="/">Shop eCom</Link>
         </h1>
+        <Nav />
       </div>
-      <Nav />
     </div>
   );
 };

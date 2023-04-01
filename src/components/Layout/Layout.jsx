@@ -1,12 +1,15 @@
 import React from "react";
+import Header from "../Header/Header";
+import Footer from "../Footer/Footer";
+import * as S from "./layout.styled";
 
-import SearchParams from "../Product/SearchParams";
-
-const Layout = () => {
+const Layout = (props) => {
   return (
-    <div>
-      <SearchParams />
-    </div>
+    <S.LayoutWrapper>
+      <Header />
+      {props.children}
+      <Footer />
+    </S.LayoutWrapper>
   );
 };
 

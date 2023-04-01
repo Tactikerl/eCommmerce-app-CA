@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import ProductList from "./ProductList";
+import * as S from "./searchBar.styled";
 
 const SearchParams = () => {
   const [fetchProducts, setFetchProducts] = useState([]);
@@ -19,7 +20,7 @@ const SearchParams = () => {
 
   return (
     <div className="search-params">
-      <form>
+      <S.SearchBarForm className="search-bar">
         <label htmlFor="productSearch">
           Product Search
           <input
@@ -31,31 +32,32 @@ const SearchParams = () => {
             placeholder="Search..."
           />
         </label>
-
         <button>Search</button>
-      </form>
-      {fetchProducts
-        .filter(
-          (products) =>
-            products.title
-              .toLowerCase()
-              .includes(productSearch.toLocaleLowerCase()) ||
-            products.tags.join().includes(productSearch)
-        )
-        .map((product) => (
-          <ProductList
-            title={product.title}
-            image={product.imageUrl}
-            price={product.price}
-            onSale={
-              product.price === product.discountedPrice ? "" : " : Discount "
-            }
-            discount={product.discountedPrice}
-            tags={product.tags}
-            key={product.id}
-            id={product.id}
-          />
-        ))}
+      </S.SearchBarForm>
+      <S.ProductListWrapper className="product-list">
+        {fetchProducts
+          .filter(
+            (products) =>
+              products.title
+                .toLowerCase()
+                .includes(productSearch.toLocaleLowerCase()) ||
+              products.tags.join().includes(productSearch)
+          )
+          .map((product) => (
+            <ProductList
+              title={product.title}
+              image={product.imageUrl}
+              price={product.price}
+              onSale={
+                product.price === product.discountedPrice ? "" : " : Discount "
+              }
+              discount={product.discountedPrice}
+              tags={product.tags}
+              key={product.id}
+              id={product.id}
+            />
+          ))}
+      </S.ProductListWrapper>
     </div>
   );
 };
