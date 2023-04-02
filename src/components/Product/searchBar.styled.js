@@ -40,7 +40,7 @@ const SearchBarForm = styled.form`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 10px;
+  padding: 75px 35px;
   border-radius: 5px;
 `;
 

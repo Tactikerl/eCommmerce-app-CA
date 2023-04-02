@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { CartContext } from "../../App";
+import * as S from "./checkout.styled";
 
 const CartPage = () => {
   const { cartContent, addToCart, removeFromCart, clearCart } =
@@ -17,41 +18,41 @@ const CartPage = () => {
   }
 
   return (
-    <div>
-      <ul>
-        <h2>Checkout</h2>
-        <div>
-          <button onClick={() => clearCart()}>Clear Cart</button>
-        </div>
+    <S.CheckoutWrapper>
+      <S.CheckoutHeader>Checkout</S.CheckoutHeader>
 
+      <S.CheckoutCartList>
+        <S.CheckoutConfirmButton onClick={() => clearCart()}>
+          Clear Cart
+        </S.CheckoutConfirmButton>
         {cartContent.cartList.map((item) => (
-          <li className="cart-products" key={item.id}>
+          <S.CheckoutProductCard key={item.id}>
             {" "}
-            <h2>{item.title}</h2> <img src={item.image} alt={item.title} />{" "}
-            <p>{item.price}</p>{" "}
-            <div>
-              <button onClick={() => addToCart(item.id)}>+</button>
-              <p>{item.count}</p>
-              <button onClick={() => removeFromCart(item.id)}>-</button>
-            </div>
-          </li>
+            <S.CheckoutProductImage src={item.image} alt={item.title} />{" "}
+            <S.CheckoutProductTitle>{item.title}</S.CheckoutProductTitle>{" "}
+            <S.CheckoutProductPrice>{item.price}</S.CheckoutProductPrice>{" "}
+            <S.CheckoutProductQuantity>{item.count}</S.CheckoutProductQuantity>
+            <S.CheckoutProductAdd onClick={() => addToCart(item.id)}>
+              +
+            </S.CheckoutProductAdd>
+            <S.CheckoutProductRemove onClick={() => removeFromCart(item.id)}>
+              -
+            </S.CheckoutProductRemove>
+          </S.CheckoutProductCard>
         ))}
-        <div>
-          <div>
-            <button onClick={() => clearCart()}>Clear Cart</button>
-          </div>
-          <h2>
-            Total: {Math.round(priceTotal(cartContent.cartList) * 100) / 100}
-          </h2>
-        </div>
-        <div>
-          <Link to={`CheckoutSuccess`}>
-            <button>Confirm Order</button>
-          </Link>
-          <p></p>
-        </div>
-      </ul>
-    </div>
+      </S.CheckoutCartList>
+      <S.CheckoutTotal>
+        <S.CheckoutTotalPrice>
+          Total: {Math.round(priceTotal(cartContent.cartList) * 100) / 100}
+        </S.CheckoutTotalPrice>
+        <S.CheckoutConfirmButton onClick={() => clearCart()}>
+          Clear Cart
+        </S.CheckoutConfirmButton>
+        <Link to={`CheckoutSuccess`}>
+          <S.CheckoutConfirmButton>Confirm Order</S.CheckoutConfirmButton>
+        </Link>
+      </S.CheckoutTotal>
+    </S.CheckoutWrapper>
   );
 };
 

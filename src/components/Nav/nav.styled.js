@@ -27,6 +27,19 @@ export const NavLogoImg = styled.img`
   margin-right: 10px;
 `;
 
+export const NavLogoLink = styled.a`
+  display: block;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #000;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    color: #f00;
+    transform: scale(1.1);
+  }
+`;
+
 export const NavLogoTitle = styled.h1`
   font-size: 1.5rem;
   font-weight: 500;

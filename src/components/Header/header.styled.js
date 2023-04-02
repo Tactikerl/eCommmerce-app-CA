@@ -30,7 +30,7 @@ const HeaderLogoImg = styled.img`
 const HeaderLogoTitle = styled.h1`
   font-size: 1.5rem;
   font-weight: 500;
-  color: #fff;
+  color: #000;
 `;
 
 const HeaderMenu = styled.ul`

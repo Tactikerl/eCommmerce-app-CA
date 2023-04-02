@@ -16,6 +16,9 @@ const Nav = () => {
         <S.NavMenuItem>
           <Cart cartImg />
         </S.NavMenuItem>
+        <S.NavMenuItem>
+          <S.NavLogoLink to="/">Shop eCom</S.NavLogoLink>
+        </S.NavMenuItem>
       </S.NavMenu>
     </S.NavWrapper>
   );
