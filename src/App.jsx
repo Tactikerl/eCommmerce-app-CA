@@ -4,11 +4,12 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { createContext, useState } from "react";
 import ProductParams from "./components/Product/ProductParams";
 import Layout from "./components/Layout/Layout";
-import Footer from "./components/Footer/Footer";
+
 import ContactPage from "./components/Contact/ContactPage";
-import Header from "./components/Header/Header";
+
 import CartPage from "./components/Cart/CheckoutPage";
 import CheckoutSuccess from "./components/CheckoutSuccess/CheckoutSuccessPage";
+import SearchParams from "./components/Product/SearchParams";
 
 export const CartContext = createContext({ cartContent: { cartList: [] } });
 function productTotal(cartList) {
@@ -74,18 +75,18 @@ const App = () => {
       value={{ cartContent, addToCart, removeFromCart, clearCart }}
     >
       <BrowserRouter>
-        <Header />
-        <Routes>
-          <Route path="/product/:id" element={<ProductParams />} />
-          <Route path="ContactPage" element={<ContactPage />} />
-          <Route
-            path="/CartPage/CheckoutSuccess"
-            element={<CheckoutSuccess />}
-          />
-          <Route path="CartPage" element={<CartPage />} />
-          <Route path="/" element={<Layout />} />
-        </Routes>
-        <Footer />
+        <Layout>
+          <Routes>
+            <Route path="/product/:id" element={<ProductParams />} />
+            <Route path="ContactPage" element={<ContactPage />} />
+            <Route
+              path="/CartPage/CheckoutSuccess"
+              element={<CheckoutSuccess />}
+            />
+            <Route path="CartPage" element={<CartPage />} />
+            <Route path="/" element={<SearchParams />} />
+          </Routes>
+        </Layout>
       </BrowserRouter>
     </CartContext.Provider>
   );
@@ -97,10 +98,6 @@ document.addEventListener("DOMContentLoaded", () => {
   if (!container) {
     container = document.getElementById("root");
     const root = createRoot(container);
-    root.render(
-      <React.StrictMode>
-        <App />
-      </React.StrictMode>
-    );
+    root.render(<App />);
   }
 });

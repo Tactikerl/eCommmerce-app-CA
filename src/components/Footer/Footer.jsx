@@ -1,10 +1,14 @@
+import React from "react";
+import { Link } from "react-router-dom";
+import * as S from "./footer.styled";
+
 const Footer = () => {
   return (
-    <footer>
-      <p>Social Media</p>
-      <p>Legal Stuff</p>
-      <p>Keeerl LTD™</p>
-    </footer>
+    <S.FooterWrapper>
+      <S.FooterText>Social Media</S.FooterText>
+      <S.FooterText>Legal Stuff</S.FooterText>
+      <S.FooterText>Keeerl LTD™</S.FooterText>
+    </S.FooterWrapper>
   );
 };
 
