@@ -2,13 +2,14 @@
 
 <p align="center">This is my Front-end Frameworks CA, part of the fourth semester at Noroff. I am tasked with creating an e-commerce site</p>
 
-### We were tasked to build out the following pages:
+### We were tasked to build out the following pages for the site:
 
 <ul>
    <li> Homepage</li>
    <li> Individual product page</li>
    <li> Cart page</li>
-   <li> Checkout success page</li>   
+   <li> Checkout success page</li> 
+   <li>Contact page</li>
 </ul>
 
 
