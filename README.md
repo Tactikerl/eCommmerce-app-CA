@@ -99,6 +99,6 @@ npm run dev
 
 ## Usage
 
-To test and use the website the project should be running locally and you can now browse and add products to the cart, go to the checkout page and initiate the checkout success page with the button.
+To test and use the website the project should be running locally or you could access it via https://storied-twilight-7cfba6.netlify.app/. You can now browse and add products to the cart, go to the checkout page and initiate the checkout success page with the button.
 
 
